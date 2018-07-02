@@ -1,16 +1,16 @@
 <template>
     <label class="radio">
-        <input type="radio" :name="options.name" :value="options.value" :checked="options.checked">
+        <input type="radio" :name="defaults.name" :value="defaults.value" :checked="defaults.checked">
         <span><slot></slot></span>
     </label>
 </template>
 
 <script>
 export default {
-    props: ['attr'],
+    props: ['options'],
     data () {
         return {
-            options: {
+            defaults: {
                 name: '',
                 value: '',
                 checked: false
@@ -18,7 +18,7 @@ export default {
         }
     },
     created () {
-        $.extend(this.options, this.attr)
+        $.extend(this.defaults, this.options)
     }
 }
 </script>

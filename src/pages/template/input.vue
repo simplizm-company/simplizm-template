@@ -27,8 +27,8 @@
                 <tr>
                     <th>성별</th>
                     <td>
-                        <radio>남자</radio>
-                        <radio>여자</radio>
+                        <radio :options="{ name: 'gender' }">남자</radio>
+                        <radio :options="{ name: 'gender' }">여자</radio>
                     </td>
                 </tr>
                 <tr>
