@@ -28,7 +28,7 @@ export default {
     },
     watch: {
         windowScrollTop () {
-            console.log('scroll watch');
+            console.log('scroll watch', this.windowScrollTop);
         },
         windowWidth () {
             console.log('resize window');

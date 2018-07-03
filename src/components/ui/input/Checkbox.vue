@@ -1,25 +1,35 @@
 <template>
     <label class="checkbox">
-        <input type="checkbox" :name="options.name" :value="options.value" :checked="options.checked">
-        <span><slot></slot></span>
+        <input type="checkbox"
+            :value="val"
+            v-model="checked"
+            @change="onChange"
+        ><span><slot></slot></span>
     </label>
-    <!-- <checkbox :attr="{ name: 'checkbox', value: 'checkbox1', checked: true }">체크박스 1</checkbox> -->
 </template>
 
 <script>
 export default {
-    props: ['attr'],
+    props: ['value', 'val'],
     data () {
         return {
-            options: {
-                name: '',
-                value: '',
-                checked: false
+            checkedProxy: false
+        }
+    },
+    computed: {
+        checked: {
+            get () {
+                return this.value;
+            },
+            set (val) {
+                this.checkedProxy = val;
             }
         }
     },
-    created () {
-        $.extend(this.options, this.attr)
+    methods: {
+        onChange: function(e) {
+            this.$emit('input', this.checkedProxy)
+        }
     }
 }
 </script>

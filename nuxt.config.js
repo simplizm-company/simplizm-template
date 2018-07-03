@@ -36,6 +36,9 @@ module.exports = {
       })
     ]
   },
+  router: {
+    //base: '/datepicker/'
+  },
   modules: [
     ['nuxt-sass-resources-loader', [
         '~/assets/scss/_mixin.scss',
@@ -43,6 +46,7 @@ module.exports = {
     ]]
   ],
   plugins: [
-    '~/plugins/setWindowInfo'
+    '~/plugins/setWindowInfo',
+    '~/plugins/componentsRegister'
   ]
 }

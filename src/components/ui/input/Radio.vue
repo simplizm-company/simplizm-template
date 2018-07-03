@@ -1,24 +1,35 @@
 <template>
     <label class="radio">
-        <input type="radio" :name="defaults.name" :value="defaults.value" :checked="defaults.checked">
-        <span><slot></slot></span>
+        <input type="radio"
+            :value="val"
+            v-model="checked"
+            @change="onChange"
+        ><span><slot></slot></span>
     </label>
 </template>
 
 <script>
 export default {
-    props: ['options'],
+    props: ['value', 'val'],
     data () {
         return {
-            defaults: {
-                name: '',
-                value: '',
-                checked: false
+            checkedProxy: false
+        }
+    },
+    computed: {
+        checked: {
+            get () {
+                return this.value;
+            },
+            set (val) {
+                this.checkedProxy = val;
             }
         }
     },
-    created () {
-        $.extend(this.defaults, this.options)
+    methods: {
+        onChange: function(e) {
+            this.$emit('input', this.checkedProxy)
+        }
     }
 }
 </script>
