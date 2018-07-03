@@ -3,6 +3,7 @@
         class="datepicker"
         :class="{ period : period }"
         v-model="checked"
+        :openDate="prevMonth"
         :value="checked"
         :language="ko"
         :inline="defaults.inline"
@@ -19,7 +20,7 @@ import VuejsDatepicker from 'vuejs-datepicker';
 import { ko } from 'vuejs-datepicker/dist/locale';
 
 export default {
-    props: ['options'],
+    props: ['options', 'prevMonth'],
     components: {
         VuejsDatepicker
     },
@@ -95,6 +96,7 @@ export default {
         }
     },
     created () {
+        console.log(this.prevMonth);
         $.extend(this.defaults, this.options);
     },
     methods: {

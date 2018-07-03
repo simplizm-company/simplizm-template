@@ -56,7 +56,7 @@
                         <div>{{ checkModel }}</div>
                     </td>
                 </tr>
-                <!-- <tr>
+                <tr>
                     <th>달력</th>
                     <td>
                         <datepicker style="width: 50%;" :options="datepickerOptions" v-model="datepickerOptions.date"></datepicker>
@@ -71,12 +71,12 @@
                         <div>{{ datepickerOptions1.date }}</div>
                         <div>{{ datepickerOptions2.date }}</div>
                     </td>
-                </tr> -->
+                </tr>
                 <tr>
                     <th>달력 (단일 기간)</th>
                     <td>
                         <div>
-                            <datepicker-02 style="width: 50%;" :options="datepickerOptions3" v-model="datepickerOptions3.date"></datepicker-02>
+                            <datepicker-02 style="width: 50%;" :options="datepickerOptions3" v-model="datepickerOptions3.date" :prevMonth="prevMonth"></datepicker-02>
                             <datepicker-02 style="width: 50%;" :options="datepickerOptions3" v-model="datepickerOptions3.date"></datepicker-02>
                         </div>
                         <div>{{ datepickerOptions3.date }}</div>
@@ -132,7 +132,6 @@ export default {
             },
             datepickerOptions1: {
                 date: '',
-                inline: true,
                 highlighted: {
                     from: false,
                     to: false,
@@ -141,7 +140,6 @@ export default {
             },
             datepickerOptions2: {
                 date: '',
-                inline: true,
                 highlighted: {
                     from: false,
                     to: false,
@@ -157,6 +155,13 @@ export default {
                     dates: []
                 }
             }
+        }
+    },
+    computed: {
+        prevMonth () {
+            let date = new Date();
+            date.setMonth(date.getMonth() - 1)
+            return date;
         }
     },
     watch: {
