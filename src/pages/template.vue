@@ -6,6 +6,7 @@
                 <li><nuxt-link to="/template/input">input</nuxt-link></li>
                 <li><nuxt-link to="/template/icons">icons</nuxt-link></li>
                 <li><nuxt-link to="/template/title">title</nuxt-link></li>
+                <li><nuxt-link to="/template/flex">flex</nuxt-link></li>
             </ul>
         </nav>
 
