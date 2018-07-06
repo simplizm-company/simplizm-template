@@ -1,9 +1,9 @@
 import Vue from 'vue';
 
-var requireComponent = require.context('~/components', true, /\w+\.(vue|js)$/);
+let requireComponent = require.context('~/components', true, /\w+\.(vue|js)$/);
 
 requireComponent.keys().forEach(function (fileName) {
-   var ComponentName = fileName.replace(/^\.(\/.*)*\/(.*)\.\w+$/, '$2');
-   var componentConfig = requireComponent(fileName);
-   Vue.component(ComponentName, componentConfig.default || componentConfig);
+    let componentConfig = requireComponent(fileName);
+    let ComponentName = componentConfig.default.componentName ? componentConfig.default.componentName : fileName.replace(/^\.(\/.*)*\/(.*)\.\w+$/, '$2');
+    Vue.component(ComponentName, componentConfig.default || componentConfig);
 });
