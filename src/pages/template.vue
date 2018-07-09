@@ -4,6 +4,7 @@
             <ul>
                 <li><nuxt-link to="/template/button">button</nuxt-link></li>
                 <li><nuxt-link to="/template/input">input</nuxt-link></li>
+                <li><nuxt-link to="/template/input2">input2</nuxt-link></li>
                 <li><nuxt-link to="/template/icons">icons</nuxt-link></li>
                 <li><nuxt-link to="/template/text">text</nuxt-link></li>
                 <li><nuxt-link to="/template/flex">flex</nuxt-link></li>

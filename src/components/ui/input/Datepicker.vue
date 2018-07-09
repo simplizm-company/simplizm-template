@@ -87,11 +87,21 @@ export default {
             this.defaults.highlighted.from = newValue;
             this.from.highlighted.from = newValue;
             this.defaults.highlighted.dates = [newValue];
+            this.defaults.disabledDates.customPredictor = function (date) {
+                if (date < newValue) {
+                    return true;
+                }
+            }
         },
         'to.date' (newValue, oldValue) {
             this.defaults.highlighted.to = newValue;
             this.to.highlighted.to = newValue;
             this.defaults.highlighted.dates = [newValue];
+            this.defaults.disabledDates.customPredictor = function (date) {
+                if (date > newValue) {
+                    return true;
+                }
+            }
         }
     },
     created () {
@@ -100,8 +110,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .datepicker {display: inline-block;}
+.datepicker .cell.highlight-start {background: #44bbdd;}
+.datepicker .cell.highlight-end {background: #44bbdd;}
 </style>
 
 

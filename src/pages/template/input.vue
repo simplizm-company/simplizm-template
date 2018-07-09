@@ -27,33 +27,72 @@
                 <tr>
                     <th>성별</th>
                     <td>
-                        <radio val="foo" v-model="componentRadio">남자</radio>
-                        <radio val="bar" v-model="componentRadio">여자</radio>
+                        <flex class="cr-box">
+                            <radio val="foo" v-model="componentRadio">남자</radio>
+                            <radio val="bar" v-model="componentRadio">여자</radio>
+                        </flex>
                         <div>{{ componentRadio }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>성별2</th>
                     <td>
-                        <radio val="a" v-model="componentRadio2">남자</radio>
-                        <radio val="b" v-model="componentRadio2">여자</radio>
+                        <flex class="cr-box">
+                            <radio val="a" v-model="componentRadio2">남자</radio>
+                            <radio val="b" v-model="componentRadio2">여자</radio>
+                        </flex>
                         <div>{{ componentRadio2 }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>성별3</th>
                     <td>
-                        <radio val="0" v-model="componentRadio3">남자</radio>
-                        <radio val="1" v-model="componentRadio3">여자</radio>
+                        <flex class="cr-box">
+                            <radio val="0" v-model="componentRadio3">남자</radio>
+                            <radio val="1" v-model="componentRadio3">여자</radio>
+                        </flex>
                         <div>{{ componentRadio3 }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>체크박스</th>
                     <td>
-                        <checkbox val="foo" v-model="checkModel">체크박스 1</checkbox>
-                        <checkbox val="bar" v-model="checkModel">체크박스 2</checkbox>
-                        <div>{{ checkModel }}</div>
+                        <flex class="cr-box">
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                        </flex>
+                    </td>
+                </tr>
+                <tr>
+                    <th>체크박스</th>
+                    <td>
+                        <flex class="cr-box">
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                            <check val="bar" v-model="checkModel">체크박스 2</check>
+                            <t>dfdf</t>
+                        </flex>
                     </td>
                 </tr>
                 <tr>
@@ -70,16 +109,6 @@
                         <datepicker style="width: 50%;" :options="datepickerOptions2" v-model="datepickerOptions2.date" :from="datepickerOptions1"></datepicker>
                         <div>{{ datepickerOptions1.date }}</div>
                         <div>{{ datepickerOptions2.date }}</div>
-                    </td>
-                </tr>
-                <tr>
-                    <th>달력 (단일 기간)</th>
-                    <td>
-                        <div>
-                            <datepicker-02 style="width: 50%;" :options="datepickerOptions3" v-model="datepickerOptions3.date" :prevMonth="prevMonth"></datepicker-02>
-                            <datepicker-02 style="width: 50%;" :options="datepickerOptions3" v-model="datepickerOptions3.date"></datepicker-02>
-                        </div>
-                        <div>{{ datepickerOptions3.date }}</div>
                     </td>
                 </tr>
                 <tr>
@@ -145,23 +174,7 @@ export default {
                     to: false,
                     dates: []
                 }
-            },
-            datepickerOptions3: {
-                date: '',
-                inline: true,
-                highlighted: {
-                    from: false,
-                    to: false,
-                    dates: []
-                }
             }
-        }
-    },
-    computed: {
-        prevMonth () {
-            let date = new Date();
-            date.setMonth(date.getMonth() - 1)
-            return date;
         }
     },
     watch: {
@@ -180,9 +193,16 @@ export default {
 
 
 <style lang="scss" scoped>
-.write-table {width: 100%;}
-.write-table table {width: 100%; border-top: 1px solid #000000;}
-.write-table table tbody tr th {border-bottom: 1px solid #cccccc;}
-.write-table table tbody tr td {border-bottom: 1px solid #cccccc; padding: 10px 20px;}
-.write-table table tbody tr td label {margin: 0 20px 0 0; line-height: 40px;}
+.write-table {width: 100%;
+    table {
+        width: 100%; border-top: 1px solid #000000;
+        tbody tr th {border-bottom: 1px solid #cccccc;}
+        tbody tr td {border-bottom: 1px solid #cccccc; padding: 10px 20px;
+            .cr-box {flex-wrap: wrap; align-items: center;
+                .check,
+                .radio {margin: 10px 20px 10px 0;}
+            }
+        }
+    }
+}
 </style>

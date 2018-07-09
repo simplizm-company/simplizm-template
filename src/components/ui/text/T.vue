@@ -1,5 +1,5 @@
 <template>
-    <div class="txt">
+    <div class="custom-text-tag">
         <div>
             <slot>Text</slot>
         </div>
@@ -8,9 +8,7 @@
 
 
 <style lang="scss" scoped>
-.txt {display: flex;}
-.txt div {display: flex; align-items: baseline; margin: -0.5ex 0;}
-
-.txt.s1 {font-size: 30px;}
+.custom-text-tag {display: flex;}
+.custom-text-tag div {display: flex; align-items: baseline; margin: -0.5ex 0;}
 </style>
 
