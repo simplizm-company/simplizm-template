@@ -1,51 +1,123 @@
 <template>
     <div class="input-form">
-        <section>
-            <h class="title">이름</h>
-            <div class="input">
-                <input type="text" placeholder="이름">
-            </div>
-        </section>
-        <section>
-            <h class="title">체크박스</h>
-            <div class="input2">
-                <check val="foo" v-model="checkModel">체크박스 1</check>
-                <check val="bar1" v-model="checkModel">체크박스 2</check>
-                <check val="bar2" v-model="checkModel">체크박스 2</check>
-                <check val="bar3" v-model="checkModel">체크박스 2</check>
-                <check val="bar4" v-model="checkModel">체크박스 2</check>
-                <check val="bar5" v-model="checkModel">체크박스 2</check>
-                <check val="bar6" v-model="checkModel">체크박스 2</check>
-                <check val="bar7" v-model="checkModel">체크박스 2</check>
-                <check val="bar8" v-model="checkModel">체크박스 2</check>
-                <check val="bar9" v-model="checkModel">체크박스 2</check>
-                <check val="bar0" v-model="checkModel">체크박스 2</check>
-                <check val="bar11" v-model="checkModel">체크박스 2</check>
-                <check val="bar12" v-model="checkModel">체크박스 2</check>
-                <check val="bar13" v-model="checkModel">체크박스 2</check>
-                <check val="bar14" v-model="checkModel">체크박스 2</check>
-                <check val="bar15" v-model="checkModel">체크박스 2</check>
-                <check val="bar16" v-model="checkModel">체크박스 2</check>
-                <check val="bar17" v-model="checkModel">체크박스 2</check>
-            </div>
-        </section>
-        <section>
-            <h class="title">라디오</h>
-            <div class="input2">
-                <radio val="foo" v-model="componentRadio">FOO</radio>
-                <radio val="bar" v-model="componentRadio">BAR</radio>
-            </div>
-        </section>
-        <section>
-            <h class="title">셀렉트</h>
-            <div class="input">
-                <select>
-                    <option>셀렉트1</option>
-                    <option>셀렉트2</option>
-                    <option>셀렉트3</option>
-                </select>
-            </div>
-        </section>
+        <dl>
+            <cut tag="dt">이메일</cut>
+            <dd>
+                <input type="email"
+                    placeholder="이메일"
+                    spellcheck="false"
+                    v-model="value.email"
+                    :class="{
+                        value: value.email,
+                        valid: valid.email
+                    }">
+                <button-01 type="3" height="40" width="100px">중복확인</button-01>
+            </dd>
+            <dd v-if="value.email">
+                <p class="valid-text invalid" v-if="!valid.email">이메일주소를 확인해 주세요</p>
+                <p class="valid-text valid" v-if="valid.email">유효한 이메일주소 입니다.</p>
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">비밀번호</cut>
+            <dd>
+                <input type="password"
+                    placeholder="비밀번호"
+                    v-model="value.password"
+                    :class="{
+                        value: value.password,
+                        valid: valid.password
+                    }">
+            </dd>
+            <dd v-if="value.password">
+                <p class="valid-text invalid" v-if="!valid.password">영문, 숫자, 특수문자가 포함된 8 ~ 16자</p>
+                <p class="valid-text valid" v-if="valid.password">사용할 수 있는 비밀번호 입니다.</p>
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">비밀번호 확인</cut>
+            <dd>
+                <input type="password"
+                    placeholder="비밀번호 확인"
+                    v-model="value.passwordConfirm"
+                    :disabled="!valid.password"
+                    :class="{
+                        value: value.passwordConfirm,
+                        valid: valid.passwordConfirm
+                    }">
+            </dd>
+            <dd v-if="value.password && value.passwordConfirm">
+                <p class="valid-text invalid" v-if="!valid.passwordConfirm">비밀번호와 일치하지 않습니다.</p>
+                <p class="valid-text valid" v-if="valid.passwordConfirm">비밀번호와 일치합니다.</p>
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">이름</cut>
+            <dd>
+                <input type="text"
+                    placeholder="이름"
+                    v-model="value.name"
+                    :class="{
+                        value: value.name,
+                        valid: valid.name
+                    }">
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">성별</cut>
+            <dd>
+                <radio val="woman" v-model="value.gender">여자</radio>
+                <radio val="man" v-model="value.gender">남자</radio>
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">생년월일</cut>
+            <dd>
+                <input type="text"
+                    placeholder="19450815"
+                    v-model="value.birth"
+                    :class="{
+                        value: value.birth,
+                        valid: valid.birth
+                    }">
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">핸드폰번호</cut>
+            <dd>
+                <input type="tel"
+                    placeholder="01012341234"
+                    v-model="value.phone"
+                    :class="{
+                        value: value.phone,
+                        valid: valid.phone
+                    }">
+            </dd>
+        </dl>
+        <dl>
+            <cut tag="dt">인증번호</cut>
+            <dd>
+                <input type="text"
+                    placeholder="인증번호"
+                    v-model="value.certification"
+                    :class="{
+                        value: value.certification,
+                        valid: valid.certification
+                    }">
+                <button-01 type="3" height="40" width="100px">인증확인</button-01>
+            </dd>
+        </dl>
+        <button-box style="margin-top: 50px;">
+            <button-01 type="1" height="50" width="100%" :disabled="!valid.validAll" @click="signup">회원가입</button-01>
+        </button-box>
+        <div style="position: fixed; top: 50px; left: 1000px;">
+            <p>이메일 : {{ value.email }}</p>
+            <p>비밀번호 : {{ value.password }}</p>
+            <p>이름 : {{ value.name }}</p>
+            <p>성별 : {{ value.gender }}</p>
+            <p>생일 : {{ value.birth }}</p>
+            <p>핸드폰번호 : {{ value.phone }}</p>
+        </div>
     </div>
 </template>
 
@@ -53,8 +125,76 @@
 export default {
     data () {
         return {
-            componentRadio: 'bar',
-            checkModel: ['bar1', 'bar2'],
+            value: {
+                email: '',
+                password: '',
+                passwordConfirm: '',
+                name: '',
+                gender: 'woman',
+                birth: '',
+                phone: '',
+                certification: ''
+            },
+            valid: {
+                email: false,
+                password: false,
+                passwordConfirm: false,
+                name: false,
+                gender: true,
+                birth: false,
+                phone: false,
+                certification: false,
+                validAll: false
+            }
+        }
+    },
+    watch: {
+        'value.email' () {
+            let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            this.valid.email = regex.test(this.value.email);
+        },
+        'value.password' () {
+            let regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
+            this.valid.password = regex.test(this.value.password);
+            this.valid.passwordConfirm = this.value.password === this.value.passwordConfirm && this.value.password;
+        },
+        'value.passwordConfirm' () {
+            this.valid.passwordConfirm = this.value.password === this.value.passwordConfirm && this.value.password;
+        },
+        'value.name' () {
+            this.valid.name = this.value.name;
+        },
+        'value.birth' () {
+            let regex = /^[0-9]{8}$/;
+            this.valid.birth = regex.test(this.value.birth);
+        },
+        'value.phone' () {
+            let regex = /^[0-9]{10,11}$/;
+            this.valid.phone = regex.test(this.value.phone);
+        },
+        'value.certification' () {
+            this.valid.certification = this.value.certification;
+        },
+        valid: {
+            handler () {
+                if (this.valid.email
+                    && this.valid.password
+                    && this.valid.passwordConfirm
+                    && this.valid.name
+                    && this.valid.birth
+                    && this.valid.phone
+                    && this.valid.certification) {
+                    this.valid.validAll = true;
+                } else {
+                    this.valid.validAll = false;
+                }
+            },
+            deep: true
+        }
+    },
+    methods: {
+        signup () {
+            alert('signup');
         }
     }
 }
@@ -62,13 +202,25 @@ export default {
 
 
 <style lang="scss" scoped>
-.input-form > section {
-    margin: 30px 0 0;
-    &:first-child {margin-top: 0;}
-    .title {margin: 0 0 10px; font-weight: 400; font-size: 17px;}
-    .input {display: flex; min-height: 40px; align-items: center;}
-    .input2 {display: flex; flex-wrap: wrap; margin: -10px 0; align-items: center;
-        .check, .radio {margin: 10px 20px 10px 0;}
+.input-form {max-width: 500px;
+    > dl {margin: 30px 0 0;
+        &:first-child {margin-top: 0;}
+        dt {margin: 0 0 10px; font-weight: 700; font-size: 17px;}
+        dd {display: flex; flex-wrap: nowrap; align-items: center; margin: 0 0 10px;
+            &:last-child {margin-bottom: 0;}
+            @include inputTypeText {flex: 1 1 auto;
+                &:focus {border-color: #000000;}
+                &.value {border-color: #ed1c24;}
+                &.valid {border-color: #22b14c;}
+            }
+            button {flex: 1 0 100px; margin: 0 0 0 10px;}
+            .check,
+            .radio {margin: 10px 20px 10px 0;}
+            .valid-text {font-size: 17px;
+                &.invalid {color: #ed1c24;}
+                &.valid {color: #22b14c;}
+            }
+        }
     }
 }
 </style>

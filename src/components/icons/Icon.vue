@@ -8,12 +8,7 @@
 
 <script>
 export default {
-    props: ['name', 'size', 'color'],
-    computed: {
-        options () {
-            return $.extend(this.defaults, this.attr);
-        }
-    }
+    props: ['name', 'size', 'color']
 }
 </script>
 

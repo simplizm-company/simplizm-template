@@ -15,5 +15,8 @@
             <button-01 type="2" height="50" width="150px">color 02</button-01>
             <button-01 type="3" height="50" width="150px">color 03</button-01>
         </button-box>
+        <button-box style="margin-top: 50px;">
+            <button-01></button-01>
+        </button-box>
     </div>
 </template>

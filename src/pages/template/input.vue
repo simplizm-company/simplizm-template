@@ -91,7 +91,6 @@
                             <check val="bar" v-model="checkModel">체크박스 2</check>
                             <check val="foo" v-model="checkModel">체크박스 1</check>
                             <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <t>dfdf</t>
                         </flex>
                     </td>
                 </tr>
