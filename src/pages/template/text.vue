@@ -11,6 +11,9 @@
             <cut style="font-size: 34px;">28,310원<span style="font-size: 20px;">26,329원(7% 청구할인)</span></cut>
             <cut style="font-size: 34px;">텍스트는괜찮나?<span style="font-size: 20px;">숫자만이상한거지?</span></cut>
         </div>
+        <div style="padding: 30px; background: red;">
+            <cut style="background: white;">h1태그입니다<br>두줄</cut>
+        </div>
     </div>
 </template>
 

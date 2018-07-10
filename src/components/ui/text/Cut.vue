@@ -20,7 +20,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.cut-text-tag {display: flex;}
-.cut-text-tag div {display: flex; align-items: baseline; margin: -0.5ex 0;}
+.cut-text-tag {display: flex;
+    > div {display: flex; align-items: baseline; margin: -0.5ex 0;}
+}
 </style>
 

@@ -1,6 +1,8 @@
 <template>
   <div id="wrap">
     <common-header></common-header>
-    <nuxt/>
+    <article id="container">
+      <nuxt/>
+    </article>
   </div>
 </template>

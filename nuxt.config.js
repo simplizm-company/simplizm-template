@@ -31,8 +31,7 @@ module.exports = {
     },
     plugins: [
       new webpack.ProvidePlugin({
-        $: 'jquery',
-        $$: 'simplizm'
+        $: 'jquery'
       })
     ]
   },

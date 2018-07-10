@@ -95,6 +95,21 @@
             </dd>
         </dl>
         <dl>
+            <cut tag="dt">주소</cut>
+            <dd>
+                <input type="text"
+                    readonly
+                    placeholder="우편번호"
+                    v-model="value.zipcode"
+                    :class="{
+                        value: value.zipcode,
+                        valid: valid.zipcode
+                    }"
+                >
+                <button-01 type="3" height="40" width="150px">우편번호찾기</button-01>
+            </dd>
+        </dl>
+        <dl>
             <cut tag="dt">인증번호</cut>
             <dd>
                 <input type="text"
@@ -133,6 +148,7 @@ export default {
                 gender: 'woman',
                 birth: '',
                 phone: '',
+                zipcode: '',
                 certification: ''
             },
             valid: {
@@ -143,6 +159,7 @@ export default {
                 gender: true,
                 birth: false,
                 phone: false,
+                zipcode: false,
                 certification: false,
                 validAll: false
             }
@@ -202,7 +219,7 @@ export default {
 
 
 <style lang="scss" scoped>
-.input-form {max-width: 500px;
+.input-form {max-width: 700px; padding: 100px;
     > dl {margin: 30px 0 0;
         &:first-child {margin-top: 0;}
         dt {margin: 0 0 10px; font-weight: 700; font-size: 17px;}
@@ -210,10 +227,11 @@ export default {
             &:last-child {margin-bottom: 0;}
             @include inputTypeText {flex: 1 1 auto;
                 &:focus {border-color: #000000;}
+                &:read-only {border-color: #cccccc; cursor: default;}
                 &.value {border-color: #ed1c24;}
                 &.valid {border-color: #22b14c;}
             }
-            button {flex: 1 0 100px; margin: 0 0 0 10px;}
+            button {flex: 1 0 auto; margin: 0 0 0 10px;}
             .check,
             .radio {margin: 10px 20px 10px 0;}
             .valid-text {font-size: 17px;

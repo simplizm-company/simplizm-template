@@ -4,16 +4,12 @@
             <ul>
                 <li><nuxt-link to="/template/button">button</nuxt-link></li>
                 <li><nuxt-link to="/template/input">input</nuxt-link></li>
-                <li><nuxt-link to="/template/input2">input2</nuxt-link></li>
+                <li><nuxt-link to="/template/signup">signup</nuxt-link></li>
                 <li><nuxt-link to="/template/icons">icons</nuxt-link></li>
                 <li><nuxt-link to="/template/text">text</nuxt-link></li>
                 <li><nuxt-link to="/template/flex">flex</nuxt-link></li>
             </ul>
         </nav>
-
-        <div id="viewer">
-            <nuxt-child/>
-        </div>
     </div>
 </template>
 
@@ -42,10 +38,8 @@ export default {
 }
 </script>
 
-<style>
-#template {padding: 50px 50px 50px 350px;}
-
-#tnb {overflow-y: scroll; position: fixed; top: 0; bottom: 0; left: 0; width: 300px; padding: 30px;}
+<style lang="scss" scoped>
+#tnb {padding: 100px;}
 #tnb ul li {margin: 15px 0 0;}
 #tnb ul li:first-child {margin-top: 0;}
 #tnb ul li a {display: block; font-weight: 700; font-size: 17px;}

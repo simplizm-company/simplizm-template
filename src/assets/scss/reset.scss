@@ -24,11 +24,12 @@ th,td {vertical-align: middle;}
 
 @include inputTypeText {display: inline-block; width: 100%; height: 40px; padding: 0 10px 0 10px; border: 1px solid #cccccc; background: #ffffff; font-weight: 400; font-size: 17px; color: #333333;
     &:disabled {background: #f7f7f7;}
+    @include placeholder {color: #999999;}
 }
 select {-webkit-appearance: none; appearance: none; background: url(~/static/images/common/select.png) right 10px center no-repeat;}
 select::-ms-expand {display: none;}
 input[type=password] {font-family: NanumGothic;}
-@include placeholder {color: #999999;}
+
 @include inputTypeButton {border: none; background: none; border-radius: 0; cursor: pointer; -webkit-appearance: none; appearance: none;}
 
 label {cursor: pointer;}

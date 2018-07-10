@@ -1,13 +1,6 @@
 @charset "utf-8";
 
 @mixin placeholder {
-    ::-webkit-input-placeholder {@content}
-    :-moz-placeholder           {@content}
-    ::-moz-placeholder          {@content}
-    :-ms-input-placeholder      {@content}  
-}
-
-@mixin placeholder2 {
     &::-webkit-input-placeholder {@content}
     &:-moz-placeholder           {@content}
     &::-moz-placeholder          {@content}
