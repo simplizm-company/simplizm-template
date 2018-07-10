@@ -1,7 +1,7 @@
 <template>
     <header id="heade">
         header
-        <nuxt-link to="/template">template</nuxt-link>
+        <nuxt-link to="/template">template</nuxt-link>s
     </header>
 </template>
 
