@@ -14,8 +14,28 @@
         <div style="padding: 30px; background: red;">
             <cut style="background: white;">h1태그입니다<br>두줄</cut>
         </div>
+        <div style="padding: 100px;">
+            <div style="margin-bottom: 50px;">
+                <check>체크박스</check>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <check style="font-size: 30px;">체크박스</check>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <check style="font-size: 11px;">체크박스</check>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <check style="font-size: 11px;">체크박스<br>체크박스</check>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <check style="font-size: 18px;">체크박스<br>체크박스</check>
+            </div>
+            <div style="margin-bottom: 50px;">
+                <check style="font-size: 30px;">체크박스<br>체크박스</check>
+            </div>
+        </div>
     </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>

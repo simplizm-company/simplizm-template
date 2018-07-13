@@ -5,7 +5,8 @@ module.exports = {
     title: 'simplizm-template',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      //{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=750px' },
       { hid: 'description', name: 'description', content: 'Nuxt.js project' }
     ],
     link: [

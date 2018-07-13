@@ -1,27 +1,43 @@
 <script>
 export default {
-    props: {
-        tag: {
-            default: 'div'
+    props: ['tag'],
+    data () {
+        return {
+            lineHeight: false,
+            fontSize: false
+        }
+    },
+    computed: {
+        margin () {
+            return (this.lineHeight - this.fontSize) / this.fontSize;
         }
     },
     render (createElement) {
         return createElement(
-            this.tag,
+            this.tag ? this.tag : 'div',
             {
-                class: 'cut-text-tag'
+                class: '_cut'
             },
             [
-                createElement('div', this.$slots.default)
+                createElement('div', {
+                    style: {
+                        margin: `-${this.margin}ex 0`
+                    }
+                }, this.$slots.default)
             ]
         );
+    },
+    created () {
+        this.$nextTick(() => {
+            this.lineHeight = parseInt($(this.$el).css('line-height'));
+            this.fontSize = parseInt($(this.$el).css('font-size'));
+        });
     }
 }
 </script>
 
-<style lang="scss" scoped>
-.cut-text-tag {display: flex;
-    > div {display: flex; align-items: baseline; margin: -0.5ex 0;}
+<style lang="scss">
+._cut {display: flex;
+    > div {display: flex; align-items: baseline;}
 }
 </style>
-

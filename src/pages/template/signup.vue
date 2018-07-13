@@ -11,7 +11,7 @@
                         value: value.email,
                         valid: valid.email
                     }">
-                <button-01 type="3" height="40" width="100px">중복확인</button-01>
+                <btn class="e1 h40 w100">중복확인</btn>
             </dd>
             <dd v-if="value.email">
                 <p class="valid-text invalid" v-if="!valid.email">이메일주소를 확인해 주세요</p>
@@ -106,7 +106,7 @@
                         valid: valid.zipcode
                     }"
                 >
-                <button-01 type="3" height="40" width="150px">우편번호찾기</button-01>
+                <btn class="e1 h40 w150">우편번호찾기</btn>
             </dd>
         </dl>
         <dl>
@@ -119,13 +119,13 @@
                         value: value.certification,
                         valid: valid.certification
                     }">
-                <button-01 type="3" height="40" width="100px">인증확인</button-01>
+                <btn class="e1 h40 w100">인증확인</btn>
             </dd>
         </dl>
-        <button-box style="margin-top: 50px;">
-            <button-01 type="1" height="50" width="100%" :disabled="!valid.validAll" @click="signup">회원가입</button-01>
-        </button-box>
-        <div style="position: fixed; top: 50px; left: 1000px;">
+        <btnbox style="margin-top: 50px;">
+            <btn class="c1 h60" :disabled="!valid.validAll" @click="signup">회원가입</btn>
+        </btnbox>
+        <div style="position: fixed; top: 50px; left: 700px;">
             <p>이메일 : {{ value.email }}</p>
             <p>비밀번호 : {{ value.password }}</p>
             <p>이름 : {{ value.name }}</p>
@@ -167,10 +167,12 @@ export default {
     },
     watch: {
         'value.email' () {
+            // email 포맷 체크 정규식
             let regex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             this.valid.email = regex.test(this.value.email);
         },
         'value.password' () {
+            // 비밀번호 영문, 숫자, 특수문자 포함 8 ~ 16 자리
             let regex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,16}$/;
             this.valid.password = regex.test(this.value.password);
             this.valid.passwordConfirm = this.value.password === this.value.passwordConfirm && this.value.password;
@@ -232,8 +234,8 @@ export default {
                 &.valid {border-color: #22b14c;}
             }
             button {flex: 1 0 auto; margin: 0 0 0 10px;}
-            .check,
-            .radio {margin: 10px 20px 10px 0;}
+            ._check,
+            ._radio {margin: 10px 20px 10px 0;}
             .valid-text {font-size: 17px;
                 &.invalid {color: #ed1c24;}
                 &.valid {color: #22b14c;}

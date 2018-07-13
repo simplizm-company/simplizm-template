@@ -27,87 +27,56 @@
                 <tr>
                     <th>성별</th>
                     <td>
-                        <flex class="cr-box">
+                        <div class="cr-box">
                             <radio val="foo" v-model="componentRadio">남자</radio>
                             <radio val="bar" v-model="componentRadio">여자</radio>
-                        </flex>
+                        </div>
                         <div>{{ componentRadio }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>성별2</th>
                     <td>
-                        <flex class="cr-box">
+                        <div class="cr-box">
                             <radio val="a" v-model="componentRadio2">남자</radio>
                             <radio val="b" v-model="componentRadio2">여자</radio>
-                        </flex>
+                        </div>
                         <div>{{ componentRadio2 }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>성별3</th>
                     <td>
-                        <flex class="cr-box">
+                        <div class="cr-box">
                             <radio val="0" v-model="componentRadio3">남자</radio>
                             <radio val="1" v-model="componentRadio3">여자</radio>
-                        </flex>
+                        </div>
                         <div>{{ componentRadio3 }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>체크박스</th>
                     <td>
-                        <flex class="cr-box">
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
+                        <div class="cr-box">
+                            <check val="foo" v-model="checkModel">체크박스 1<br>두줄이다</check>
                             <check val="bar" v-model="checkModel">체크박스 2</check>
-                        </flex>
-                    </td>
-                </tr>
-                <tr>
-                    <th>체크박스</th>
-                    <td>
-                        <flex class="cr-box">
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                            <check val="foo" v-model="checkModel">체크박스 1</check>
-                            <check val="bar" v-model="checkModel">체크박스 2</check>
-                        </flex>
+                        </div>
                     </td>
                 </tr>
                 <tr>
                     <th>달력</th>
                     <td>
-                        <datepicker style="width: 50%;" :options="datepickerOptions" v-model="datepickerOptions.date"></datepicker>
-                        <div>{{ datepickerOptions.date }}</div>
+                        <datepicker style="width: 50%;" v-model="datepickerModel"></datepicker>
+                        <div>{{ datepickerModel }}</div>
                     </td>
                 </tr>
                 <tr>
                     <th>달력 (기간)</th>
                     <td>
-                        <datepicker style="width: 50%;" :options="datepickerOptions1" v-model="datepickerOptions1.date" :to="datepickerOptions2"></datepicker>
-                        <datepicker style="width: 50%;" :options="datepickerOptions2" v-model="datepickerOptions2.date" :from="datepickerOptions1"></datepicker>
-                        <div>{{ datepickerOptions1.date }}</div>
-                        <div>{{ datepickerOptions2.date }}</div>
+                        <datepicker style="width: 50%;" v-model="datepickerModel1" :to="datepickerModel2"></datepicker>
+                        <datepicker style="width: 50%;" v-model="datepickerModel2" :from="datepickerModel1"></datepicker>
+                        <div>{{ datepickerModel1 }}</div>
+                        <div>{{ datepickerModel2 }}</div>
                     </td>
                 </tr>
                 <tr>
@@ -150,30 +119,9 @@ export default {
             componentRadio3: 1,
             selectModel: '',
             selectModel2: '',
+            datepickerModel: '',
             datepickerModel1: '',
-            datepickerModel2: '',
-            datepickerOptions: {
-                date: '',
-                disabledDates: {
-                    days: [0, 6]
-                }
-            },
-            datepickerOptions1: {
-                date: '',
-                highlighted: {
-                    from: false,
-                    to: false,
-                    dates: []
-                }
-            },
-            datepickerOptions2: {
-                date: '',
-                highlighted: {
-                    from: false,
-                    to: false,
-                    dates: []
-                }
-            }
+            datepickerModel2: ''
         }
     },
     watch: {
@@ -191,15 +139,15 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="scss">
 .write-table {width: 100%;
     table {
         width: 100%; border-top: 1px solid #000000;
         tbody tr th {border-bottom: 1px solid #cccccc;}
         tbody tr td {border-bottom: 1px solid #cccccc; padding: 10px 20px;
-            .cr-box {flex-wrap: wrap; align-items: center;
-                .check,
-                .radio {margin: 10px 20px 10px 0;}
+            .cr-box {display: flex; flex-wrap: wrap; align-items: center;
+                ._check,
+                ._radio {margin: 10px 20px 10px 0; font-size: 17px;}
             }
         }
     }

@@ -8,7 +8,10 @@
 
 <script>
 export default {
-    props: ['name', 'size', 'color']
+    props: ['name', 'size', 'color'],
+    beforeCreate () {
+        console.log($('symbol').length);
+    }
 }
 </script>
 
