@@ -31,9 +31,6 @@ export default {
         windowWidth () {
             console.log('resize window');
         }
-    },
-    mounted () {
-        console.log(this.windowScrollTop)
     }
 }
 </script>
