@@ -34,6 +34,7 @@ export default {
 <style lang="scss">
 $size: 16px;
 ._radio {display: flex; position: relative; padding: 0 0 0 24px;
+    &.textNull {padding-left: 0; width: $size; height: $size;}
     input {position: absolute; top: 5px; left: 0; width: 1px; height: 1px; opacity: 0; cursor: pointer;
         &:checked + ._cut:before {background-position-y: -$size;}
     }

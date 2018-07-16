@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 ._btn {display: flex; width: 100%; border: none; border-radius: 0; align-items: center; justify-content: center; -webkit-appearance: none; cursor: pointer;
     &.w100 {width: 100px;}
     &.w150 {width: 150px;}

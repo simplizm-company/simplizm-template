@@ -1,11 +1,11 @@
 <template>
-    <div class="btnbox">
+    <div class="_btnbox">
         <slot></slot>
     </div>
 </template>
 
-<style lang="scss" scoped>
-.btnbox {display: flex; position: relative; align-items: center; justify-content: center;
+<style lang="scss">
+._btnbox {display: flex; position: relative; align-items: center; justify-content: center;
     &.sbw {justify-content: space-between;
         > div {display: flex;}
     }

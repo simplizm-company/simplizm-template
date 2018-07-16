@@ -100,8 +100,17 @@
                             <option value="C2" v-if="selectModel == 3">C - 2</option>
                             <option value="C3" v-if="selectModel == 3">C - 3</option>
                         </select>
-                        <div>{{ selectModel }}</div>
-                        <div>{{ selectModel2 }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <th>텍스트없는 체크박스</th>
+                    <td>
+                        <div class="cr-box">
+                            <check class="textNull"></check>
+                            <check class="textNull"></check>
+                            <radio class="textNull"></radio>
+                            <radio class="textNull"></radio>
+                        </div>
                     </td>
                 </tr>
             </tbody>
