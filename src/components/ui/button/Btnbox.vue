@@ -12,14 +12,19 @@
     &.jcs {justify-content: flex-start;}
     &.jce {justify-content: flex-end;}
     &.bw10 {
+        a,
         button {margin: 0 0 0 10px;
             &:first-child {margin-left: 0;}
         }
     }
     &.bw20 {
+        a,
         button {margin: 0 0 0 20px;
             &:first-child {margin-left: 0;}
         }
     }
+    
+    .mra {margin-right: auto;}
+    .mla {margin-left: auto;}
 }
 </style>

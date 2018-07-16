@@ -7,7 +7,7 @@
                 <btn class="c1 h40 w100" @click="aa">긍정</btn>
                 <btn class="c2 h40 w100">부정</btn>
                 <btn class="e1 h40 w100">제어</btn>
-                <btn class="c1 h40 w100" disabled>비활성화</btn>
+                <btn class="c1 h40 w100" :disabled="true">비활성화</btn>
             </btnbox>
         </section>
         <section>
@@ -71,6 +71,16 @@
                     <btn class="c2 h40 w100">부정</btn>
                     <btn class="e1 h40 w100">제어</btn>
                 </div>
+            </btnbox>
+        </section>
+        <section>
+            <btnbox>
+                <btn class="c1 h40 w100">긍정</btn>
+                <btn class="c2 h40 w100">부정</btn>
+                <btn class="e1 h40 w100">제어</btn>
+                <btn class="c1 h40 w100 mla">긍정</btn>
+                <btn class="c2 h40 w100">부정</btn>
+                <btn class="e1 h40 w100">제어</btn>
             </btnbox>
         </section>
     </div>
