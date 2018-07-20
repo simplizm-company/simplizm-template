@@ -1,8 +1,8 @@
 @charset "utf-8";
 
-$desktop: 1280px;
-$tablet: 1024px;
-$mobile: 640px;
+$desktop: 1280px; // 14px : 17.5;
+$tablet: 1024px;  // 14px : 22.4;
+$mobile: 640px;   // 14px : 28;
 
 @mixin desktop {
     @media screen and (max-width: #{$desktop}) {
@@ -23,13 +23,13 @@ $mobile: 640px;
 }
 
 @function pv($value) {
-    @return $value / 1280 * 100vw;
+    @return $value / 1280 * 100+vw;
 }
 
 @function tv($value) {
-    @return $value / 1024 * 100vw;
+    @return $value / 1024 * 100+vw;
 }
 
 @function mv($value) {
-    @return $value / 640 * 100vw;
+    @return $value / 640 * 100+vw;
 }
