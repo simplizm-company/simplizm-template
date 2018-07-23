@@ -17,6 +17,9 @@ import { ko } from 'vuejs-datepicker/dist/locale';
 
 export default {
     props: {
+        uid: {
+            default: false
+        },
         format: {
             default: 'yyyy-MM-dd'
         },
@@ -74,8 +77,12 @@ export default {
                 }
             }
         },
-        from: false,
-        to: false
+        from: {
+            default: false
+        },
+        to: {
+            default: false
+        }
     },
     data () {
         return {
@@ -92,12 +99,16 @@ export default {
                 return this.value;
             },
             set (val) {
+                val.setHours(12, 0, 0, 0);
                 this.valueProxy = val;
                 this.$emit('input', this.valueProxy);
             }
         }
     },
     watch: {
+        value (newValue, oldValue) {
+            this.setPeriodValue(newValue);
+        },
         from (newValue, oldValue) {
             const self = this;
             this.highlighted.from = newValue;
@@ -117,9 +128,6 @@ export default {
                     return true;
                 }
             }
-        },
-        value (newValue, oldValue) {
-            this.setPeriodValue(newValue);
         }
     },
     created () {
@@ -148,10 +156,10 @@ export default {
     },
     methods: {
         setPeriodValue (value) {
-            if (typeof this.from !== 'undefined') {
+            if (this.from !== false) {
                 this.highlighted.to = value.setHours(12, 0, 0, 0);
             }
-            if (typeof this.to !== 'undefined') {
+            if (this.to !== false) {
                 this.highlighted.from = value.setHours(12, 0, 0, 0);
             }
         },
