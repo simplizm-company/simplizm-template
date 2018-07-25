@@ -37,6 +37,7 @@ module.exports = {
         ]
     },
     router: {
+        middleware: 'routerEach'
         //base: '/datepicker/'
     },
     modules: [

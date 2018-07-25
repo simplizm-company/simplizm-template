@@ -8,6 +8,7 @@
                 <li><nuxt-link to="/template/icons">icons</nuxt-link></li>
                 <li><nuxt-link to="/template/text">text</nuxt-link></li>
                 <li><nuxt-link to="/template/flex">flex</nuxt-link></li>
+                <li><nuxt-link to="/template/tableList">tableList</nuxt-link></li>
             </ul>
         </nav>
     </div>
