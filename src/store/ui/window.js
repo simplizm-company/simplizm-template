@@ -3,7 +3,7 @@ const state = {
     scrollLeft: 0,
     width: 0,
     height: 0,
-    
+
     isWide: false, // screen > 1280
     isDesktop: false, // screen > 1024
     isDevice: false, // screen <= 1024
